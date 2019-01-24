@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 
-namespace ManimumCI.Controllers
+namespace ManimumCD.Controllers
 {
     public class HomeController : Controller
     {
@@ -14,7 +14,6 @@ namespace ManimumCI.Controllers
         {
             return View();
         }
-
         public IActionResult Privacy()
         {
             return View();

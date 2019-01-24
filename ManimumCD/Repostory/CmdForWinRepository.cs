@@ -3,13 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ManimumCI.Repostory
+namespace ManimumCD.Repostory
 {
     /// <summary>
     /// CmdForWin仓储
     /// </summary>
     class CmdForWinRepository : ICmdForWinRepository
     {
+        /* ------要做的工作-------
+      
+          * 1、Clone源代码
+          * 2、还原
+          * 3、Build
+          * 4、XUnit测试，生成覆盖率报告
+          * 5、集成测试
+          * 6、制作Docker镜像
+          * 7、发布镜象
+         */
+
         /// <summary>
         /// 执行Win Cmd方法
         /// </summary>

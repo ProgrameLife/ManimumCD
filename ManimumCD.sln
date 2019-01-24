@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28407.52
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManimumCI", "ManimumCI\ManimumCI.csproj", "{032B7943-D947-4FEA-9AFA-4C5E1D5882C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManimumCD", "ManimumCD\ManimumCD.csproj", "{032B7943-D947-4FEA-9AFA-4C5E1D5882C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
