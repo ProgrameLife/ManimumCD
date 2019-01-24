@@ -2,11 +2,11 @@
 # 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
 ################################################################################
 
-/ManimumCI/ManimumCI/bin
-/ManimumCI/.vs
+/ManimumCI/bin
+/.vs
 *.ide
 *.cache
 *.ide-shm
 *.ide-wal
-/ManimumCI/ManimumCI/obj
+/ManimumCI/obj
 
