@@ -5,12 +5,15 @@ using System.Threading.Tasks;
 
 namespace ManimumCI.Repostory
 {
+    /// <summary>
+    /// CmdForWin仓储
+    /// </summary>
     class CmdForWinRepository : ICmdForWinRepository
     {
         /// <summary>
-        /// 
+        /// 执行Win Cmd方法
         /// </summary>
-        /// <param name="cmd"></param>
+        /// <param name="cmd">command</param>
         /// <returns></returns>
         string ExcCmd(string cmd)
         {

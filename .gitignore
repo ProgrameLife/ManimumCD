@@ -6,7 +6,9 @@
 /.vs
 *.ide
 *.cache
+*.suo
 *.ide-shm
 *.ide-wal
 /ManimumCI/obj
+/.vs/ManimumCI
 
