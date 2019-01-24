@@ -7,6 +7,11 @@ namespace ManimumCI.Repostory
 {
     class CmdForWinRepository : ICmdForWinRepository
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cmd"></param>
+        /// <returns></returns>
         string ExcCmd(string cmd)
         {
             using (var process = new System.Diagnostics.Process())
