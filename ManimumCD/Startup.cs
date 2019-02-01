@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ManimumCD.Repository;
+using ManimumCD.Terminal;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -24,13 +25,17 @@ namespace ManimumCD
      
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddTransient<ITerminal, CmdTerminal>();
+            services.AddTransient<IBuildRepository, CommandRepository>();
+
             services.Configure<CookiePolicyOptions>(options =>
             {              
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddTransient<IBuildRepository, BuildRepository>();
+            services.AddTransient<IBuildRepository, CommandRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

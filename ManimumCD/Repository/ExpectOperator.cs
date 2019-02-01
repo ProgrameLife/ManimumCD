@@ -6,14 +6,17 @@ using System.Threading.Tasks;
 namespace ManimumCD.Repository
 {
     /// <summary>
-    /// 构建仓储
+    /// 返回值和期望值关系
     /// </summary>
-    public interface IBuildRepository
+    public enum ExpectOperator
     {
         /// <summary>
-        /// 构建
+        /// 相等
         /// </summary>
-        /// <returns></returns>
-        string Build();
+        Equal,
+        /// <summary>
+        /// 包含
+        /// </summary>
+        Contain
     }
 }
