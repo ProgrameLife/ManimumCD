@@ -27,16 +27,14 @@ namespace ManimumCD
         {
 
             services.AddTransient<ITerminal, CmdTerminal>();
-            services.AddTransient<IBuildRepository, CommandRepository>();
+            services.AddTransient<ICommandRepository, CommandRepository>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {              
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
-
-            services.AddTransient<IBuildRepository, CommandRepository>();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            });           
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
         }
 
       

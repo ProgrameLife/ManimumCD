@@ -12,7 +12,13 @@ namespace ManimumCD.Controllers
 {
     public class HomeController : Controller
     {
+        /// <summary>
+        /// 终端
+        /// </summary>
         readonly ITerminal _terminal;
+        /// <summary>
+        /// 命令仓储
+        /// </summary>
         readonly ICommandRepository _commandRepository;
         public HomeController(ITerminal terminal, ICommandRepository commandRepository)
         {
