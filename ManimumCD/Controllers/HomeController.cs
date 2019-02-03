@@ -39,6 +39,9 @@ namespace ManimumCD.Controllers
                     case ExpectOperator.Contain:
                         expectResult = command.CommandResult.Contains(command.ExpectValue);
                         break;
+                    case ExpectOperator.None:
+                        expectResult = true;
+                        break;
                 }
                 if (!expectResult)
                 {

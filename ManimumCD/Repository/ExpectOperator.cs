@@ -11,6 +11,10 @@ namespace ManimumCD.Repository
     public enum ExpectOperator
     {
         /// <summary>
+        /// 无操作
+        /// </summary>
+        None,
+        /// <summary>
         /// 相等
         /// </summary>
         Equal,
@@ -18,5 +22,6 @@ namespace ManimumCD.Repository
         /// 包含
         /// </summary>
         Contain
+
     }
 }
