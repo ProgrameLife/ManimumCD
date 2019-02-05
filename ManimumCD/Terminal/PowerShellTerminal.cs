@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Management.Automation;
+using System.Management.Automation.Runspaces;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace ManimumCD.Terminal
@@ -18,26 +21,42 @@ namespace ManimumCD.Terminal
         /// <returns>返回结果</returns>
         public string Execute(params string[] commands)
         {
-            using (var process = new Process())
+            return RunScript(commands);      
+        }
+        /// <summary>
+        /// 运行powershell脚本
+        /// </summary>
+        /// <param name="scripts">命令</param>
+        /// <param name="pars">参数</param>
+        /// <returns></returns>
+        string RunScript(string[] scripts, params PSParam[] pars)
+        {
+            Runspace runspace = RunspaceFactory.CreateRunspace();
+            runspace.Open();
+            Pipeline pipeline = runspace.CreatePipeline();
+            foreach (var scr in scripts)
             {
-                process.StartInfo.FileName = "cmd.exe";
-                process.StartInfo.UseShellExecute = false;    //是否使用操作系统shell启动
-                process.StartInfo.RedirectStandardInput = true;//接受来自调用程序的输入信息
-                process.StartInfo.RedirectStandardOutput = true;//由调用程序获取输出信息
-                process.StartInfo.RedirectStandardError = true;//重定向标准错误输出
-                process.StartInfo.CreateNoWindow = true;//不显示程序窗口
-                process.Start();//启动程序     //向cmd窗口发送输入信息
-                foreach (var command in commands)
-                {
-                    process.StandardInput.WriteLine(command);
-                    process.StandardInput.AutoFlush = true;
-                }
-                //p.StandardInput.WriteLine("exit");           
-                string output = process.StandardOutput.ReadToEnd();
-                process.WaitForExit();//等待程序执行完退出进程
-                process.Close();
-                return output;
+                pipeline.Commands.AddScript(scr);
             }
+            //注入参数   
+            if (pars != null)
+            {
+                foreach (var par in pars)
+                {
+                    runspace.SessionStateProxy.SetVariable(par.Key, par.Value);
+                }
+            }
+            //返回结果   
+            var results = pipeline.Invoke();
+            runspace.Close();
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (PSObject obj in results)
+            {
+                stringBuilder.AppendLine(obj.ToString());
+            }
+            return stringBuilder.ToString();
         }
     }
+
+
 }

@@ -5,6 +5,10 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Management.Automation" Version="6.2.0-preview.4" />
+  </ItemGroup>
+
 
   
 </Project>
