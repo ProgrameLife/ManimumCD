@@ -11,9 +11,14 @@ namespace ManimumCD.Repository
     public class Command
     {
         /// <summary>
-        /// 项目关键字
+        /// 项目编号
         /// </summary>
-        public string ProjectKey { get; set; }
+        public int ProjectID { get; set; }
+        
+        /// <summary>
+        /// 终端类型编号
+        /// </summary>
+        public int TerminalTypeID { get; set; }
         
         /// <summary>
         /// 命令语句
