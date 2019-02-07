@@ -37,6 +37,11 @@ namespace ManimumCD.Repository
         /// </summary>
         public string ExpectValue { get; set; }
 
+        /// <summary>
+        /// 有效性
+        /// </summary>
+        public bool Validate { get; set; }
+
 
     }
 }

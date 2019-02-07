@@ -15,6 +15,6 @@ namespace ManimumCD.Repository
         /// </summary>
         /// <param name="projectKey"></param>
         /// <returns></returns>
-        List<Command> GetCommands(string projectKey);
+        List<Command> GetCommands(int projectID);
     }
 }

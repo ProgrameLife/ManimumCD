@@ -11,6 +11,12 @@
     <PackageReference Include="System.Management.Automation" Version="6.2.0-preview.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Data\manimumcd.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 
   
 </Project>

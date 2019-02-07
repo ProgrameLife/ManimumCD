@@ -22,22 +22,23 @@ namespace ManimumCD
 
         public IConfiguration Configuration { get; }
 
-     
+
         public void ConfigureServices(IServiceCollection services)
         {
-
+            var connection = string.Format(Configuration.GetConnectionString("DefaultConnection"), System.IO.Directory.GetCurrentDirectory());
+            services.AddSingleton(connection);
             services.AddTransient<ITerminal, CmdTerminal>();
             services.AddTransient<ICommandRepository, CommandRepository>();
 
             services.Configure<CookiePolicyOptions>(options =>
-            {              
+            {
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
-            });           
+            });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
         }
 
-      
+
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
