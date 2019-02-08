@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ManimumCD.Repository
+namespace ManimumCD.Model
 {
     /// <summary>
     /// 终端命令

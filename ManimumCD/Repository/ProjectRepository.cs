@@ -12,13 +12,13 @@ namespace ManimumCD.Repository
     /// <summary>
     /// 命令仓储
     /// </summary>
-    public class CommandRepository : ICommandRepository
+    public class ProjectRepository : IProjectRepository
     {
         /// <summary>
         /// 连接字符串
         /// </summary>
         readonly string _connectionString;
-        public CommandRepository(string connectionString)
+        public ProjectRepository(string connectionString)
         {
             _connectionString = connectionString;
         }
@@ -27,13 +27,13 @@ namespace ManimumCD.Repository
         /// </summary>
         /// <param name="projectKey"></param>
         /// <returns></returns>
-        public List<Command> GetCommands(int projectID)
+        public List<Project> GetProjects()
         {
             using (var con = new SQLiteConnection(_connectionString))
             {
-                var sql = "select * from commands where validate=true";
-                return con.Query<Command>(sql).ToList();
-            }         
+                var sql = "select * from projects where validate=true";
+                return con.Query<Project>(sql).ToList();
+            }
         }
     }
 }

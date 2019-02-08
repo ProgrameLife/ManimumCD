@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using ManimumCD.Model;
 using ManimumCD.Repository;
 using ManimumCD.Terminal;
 using Microsoft.AspNetCore.Mvc;
@@ -25,9 +26,9 @@ namespace ManimumCD.Controllers
             _terminal = terminal;
             _commandRepository = commandRepository;
         }
-        public IActionResult Build(string projectKey)
+        public IActionResult Build(int projectID)
         {
-            foreach (var command in _commandRepository.GetCommands(projectKey))
+            foreach (var command in _commandRepository.GetCommands(projectID))
             {
                 command.CommandResult = _terminal.Execute(command.CommandText);
                 var expectResult = false;

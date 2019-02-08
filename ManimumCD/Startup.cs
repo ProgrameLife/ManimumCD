@@ -25,16 +25,11 @@ namespace ManimumCD
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = string.Format(Configuration.GetConnectionString("DefaultConnection"), System.IO.Directory.GetCurrentDirectory());
+            var connection = string.Format(Configuration.GetConnectionString("DefaultConnectionString"), System.IO.Directory.GetCurrentDirectory());
             services.AddSingleton(connection);
             services.AddTransient<ITerminal, CmdTerminal>();
             services.AddTransient<ICommandRepository, CommandRepository>();
-
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
+        
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
         }
 
@@ -50,8 +45,7 @@ namespace ManimumCD
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseStaticFiles();
-            app.UseCookiePolicy();
+            app.UseStaticFiles();         
 
             app.UseMvc(routes =>
             {
