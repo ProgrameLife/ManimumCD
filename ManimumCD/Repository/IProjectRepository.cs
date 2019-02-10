@@ -15,6 +15,25 @@ namespace ManimumCD.Repository
     public interface IProjectRepository 
     {
         List<Project> GetProjects();
-        
+
+        /// <summary>
+        /// 删除项目
+        /// </summary>
+        /// <param name="id">项目ID</param>
+        /// <returns></returns>
+        bool RemoveProject(int id);
+
+        /// <summary>
+        /// 修改项目
+        /// </summary>
+        /// <param name="project">项目</param>
+        /// <returns></returns>
+        bool ModifyProject(Project project);
+        /// <summary>
+        /// 添加项目
+        /// </summary>
+        /// <param name="project">项目</param>
+        /// <returns></returns>
+        bool AddProject(Project project);
     }
 }
