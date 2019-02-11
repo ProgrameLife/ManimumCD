@@ -14,7 +14,17 @@ namespace ManimumCD.Repository
     /// </summary>
     public interface IProjectRepository 
     {
+        /// <summary>
+        /// 获取一个项目下的所有命令
+        /// </summary>
+        /// <returns></returns
         List<Project> GetProjects();
+
+        /// <summary>
+        /// 获取全部项目
+        /// </summary>
+        /// <returns></returns>
+        List<Project> GetAllProjects();
 
         /// <summary>
         /// 删除项目

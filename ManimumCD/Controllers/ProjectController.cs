@@ -20,15 +20,21 @@ namespace ManimumCD.Controllers
         /// 命令仓储
         /// </summary>
         readonly ICommandRepository _commandRepository;
-        public ProjectController(ITerminal terminal, ICommandRepository commandRepository)
+        /// <summary>
+        /// 项目仓储
+        /// </summary>
+        readonly IProjectRepository _projectRepository;
+        public ProjectController(ITerminal terminal, IProjectRepository projectRepository, ICommandRepository commandRepository)
         {
             _terminal = terminal;
             _commandRepository = commandRepository;
+            _projectRepository = projectRepository;
         }
         [HttpGet("/projects")]
         public IActionResult Index()
         {
-            return View();
+            var projects = _projectRepository.GetAllProjects();
+            return View(projects);
         }
 
     }

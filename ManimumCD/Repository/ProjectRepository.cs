@@ -25,13 +25,24 @@ namespace ManimumCD.Repository
         /// <summary>
         /// 获取一个项目下的所有命令
         /// </summary>
-        /// <param name="projectKey"></param>
         /// <returns></returns>
         public List<Project> GetProjects()
         {
             using (var con = new SQLiteConnection(_connectionString))
             {
                 var sql = "select * from projects where validate=true";
+                return con.Query<Project>(sql).ToList();
+            }
+        }
+        /// <summary>
+        /// 获取全部项目
+        /// </summary>
+        /// <returns></returns>
+        public List<Project> GetAllProjects()
+        {
+            using (var con = new SQLiteConnection(_connectionString))
+            {
+                var sql = "select * from projects";
                 return con.Query<Project>(sql).ToList();
             }
         }

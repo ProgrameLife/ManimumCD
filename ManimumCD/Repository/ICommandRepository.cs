@@ -16,6 +16,24 @@ namespace ManimumCD.Repository
         /// </summary>
         /// <param name="projectKey"></param>
         /// <returns></returns>
-        List<Command> GetCommands(int projectID);
+        List<Command> GetCommands(int projectID);   
+        /// <summary>
+        /// 添加命令
+        /// </summary>
+        /// <param name="command">命令</param>
+        /// <returns></returns>
+        bool AddCommand(Command command);
+        /// <summary>
+        /// 修改命令
+        /// </summary>
+        /// <param name="command">命令</param>
+        /// <returns></returns>
+        bool ModifyCommand(Command command);
+        /// <summary>
+        /// 删除命令
+        /// </summary>
+        /// <param name="id">编号</param>
+        /// <returns></returns>
+        bool RemoveCommand(int id);
     }
 }
