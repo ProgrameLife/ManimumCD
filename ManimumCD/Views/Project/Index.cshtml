@@ -1,11 +1,12 @@
-﻿@{
+﻿@model List<ManimumCD.Model.Project>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">   
+<div class="text-center">
     <div class="container">
         <div class="row">
-            <table class="table table-bordered table-borderless">
+            <table class="table  table-hover table-bordered  table-sm">
                 <thead>
                     <tr>
                         <th>编号</th>
@@ -15,7 +16,27 @@
                         <th>操作</th>
                     </tr>
                 </thead>
-                <tbody id="projects"></tbody>
+                <tbody id="projects">
+                    @foreach (var project in Model)
+                    {
+                        <tr class="@(project.Validate?"table-default":"table-secondary")">
+                            <td>@project.ID</td>
+                            <td>@project.Name</td>
+                            <td>@project.Describe</td>
+                            <td>@(project.Validate ? "有效" : "无效")</td>
+                            <td>
+                                <a href="#">
+                                    <span class="oi oi-pencil small">
+                                    </span>
+                                </a>
+                                <a href="#">
+                                    <span class="oi oi-trash small">
+                                    </span>
+                                </a>                               
+                            </td>
+                        </tr>
+                    }
+                </tbody>
             </table>
         </div>
     </div>

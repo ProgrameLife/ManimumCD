@@ -6,9 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dapper" Version="1.50.5" />
-    <PackageReference Include="System.Data.SQLite" Version="1.0.109.2" />
-    <PackageReference Include="System.Management.Automation" Version="6.2.0-preview.4" />
+    <PackageReference Include="Dapper" Version="1.60.6" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.110" />
+    <PackageReference Include="System.Management.Automation" Version="6.2.0" />
   </ItemGroup>
 
   <ItemGroup>
